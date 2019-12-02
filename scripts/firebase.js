@@ -1,6 +1,6 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyBlf7mbVGFuisxqndltv8RdWe2IP6zM3zk",
+    apiKey: "",
     authDomain: "coacheye-e378d.firebaseapp.com",
     databaseURL: "https://coacheye-e378d.firebaseio.com",
     projectId: "coacheye-e378d",
