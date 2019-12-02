@@ -85,6 +85,14 @@ allSailors.forEach(sailor => {
 
 console.log(allSailors);
 
+function resizeBottomPanel() {
+    const navbarHeight = document.querySelector('.navbar').clientHeight;
+    const topPanelHeight = document.querySelector('.top_panel').clientHeight;
+    const splitterHeight = document.querySelector('.splitter_panel .hsplitter').clientHeight;
+    const bottomPanel = document.querySelector('.bottom_panel');
+            
+    bottomPanel.style.height = window.innerHeight - topPanelHeight - navbarHeight - splitterHeight - 10;    
+}
 
 function updateTable(sailors) {
     const table = document.querySelector('table');
@@ -112,7 +120,9 @@ function updateTable(sailors) {
         vmg.innerHTML = sailor.coordinates[0].vmg;
         pitch.innerHTML = sailor.coordinates[0].pitch;
         roll.innerHTML = sailor.coordinates[0].roll;
-    });    
+    });
+
+    resizeBottomPanel();
 }
 
 var splitter = $('#workbench').height(1000).split({
@@ -120,6 +130,7 @@ var splitter = $('#workbench').height(1000).split({
     limit: 200,
     position: '80%', // if there is no percentage it interpret it as pixels
     onDrag: function(event) {
-        //console.log(splitter.position());
+        // console.log(splitter.position());        
+        resizeBottomPanel();
     }
 });
