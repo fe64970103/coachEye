@@ -7,9 +7,6 @@
     <title>coachEye</title>
 
     <!-- Bootstrap -->
-
-    <link rel="stylesheet" href="css/style.css">
-
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -31,6 +28,11 @@
     <script src="https://kit.fontawesome.com/19ab11a6bd.js" crossorigin="anonymous"></script>
 
     <!-- Project css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Firebase  -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
 
 </head>
 
@@ -128,7 +130,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td>Sven Panger</td>
                             <td>330</td>
                             <td>400</td>
@@ -136,7 +138,7 @@
                             <td>0.4</td>
                             <td>5</td>
                             <td>6</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -184,11 +186,12 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/calendar.js"></script>
     <script src="scripts/user_list.js"></script>
+    <script src="scripts/firebase.js"></script>
 
     <!-- Goole maps - map.js needs to be referenced before the Google API due to the init function -->
     <script src="scripts/map.js"></script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdGuMOvdBUEIA-NLPORGlMDDQ9e5Nz3Js&callback=initMap&libraries=geometry"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv0zLbCX5Vfv2dJH0cMSCV0TojEAaKgfw&callback=initMap&libraries=geometry"
         type="text/javascript"></script>
 
 </body>

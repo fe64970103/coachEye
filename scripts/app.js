@@ -70,20 +70,12 @@ class Sailor {
     }
 }
 
-var allSailors = [
-    new Sailor('Sven Panger', 205124, 'NaN'),
-    new Sailor('Lana Vidmar', 211097, 'NaN'),
-    new Sailor('Luka Zabukovec', 211097, 'NaN'),
-    new Sailor('Katja Filipič', 211097, 'NaN'),
-    new Sailor('Danei Marušič', 211097, 'NaN'),
-    new Sailor('Valentina Baruca', 211097, 'NaN')
-];
+var allSailors = [];
 
-allSailors.forEach(sailor => {
-    sailor.addPoint(new DataPoint(300, 400, 4 ,6 , 8));
-});
+// allSailors.forEach(sailor => {
+//     sailor.addPoint(new DataPoint(300, 400, 4 ,6 , 8));
+// });
 
-console.log(allSailors);
 
 function resizeBottomPanel() {
     const navbarHeight = document.querySelector('.navbar').clientHeight;
@@ -104,6 +96,10 @@ function updateTable(sailors) {
     }    
 
     sailors.forEach(sailor => {
+        if(!sailor.checked) {
+            return;
+        }
+
         var row = table.insertRow(-1);
         var name = row.insertCell(0);
         var wind = row.insertCell(1);
@@ -114,17 +110,38 @@ function updateTable(sailors) {
         var roll = row.insertCell(6);
 
         name.innerHTML = sailor.name;
-        wind.innerHTML = sailor.coordinates[0].wind;
-        heading.innerHTML = sailor.coordinates[0].heading;
-        speed.innerHTML = sailor.coordinates[0].speed;
-        vmg.innerHTML = sailor.coordinates[0].vmg;
-        pitch.innerHTML = sailor.coordinates[0].pitch;
-        roll.innerHTML = sailor.coordinates[0].roll;
+        // wind.innerHTML = sailor.coordinates[0].wind;
+        // heading.innerHTML = sailor.coordinates[0].heading;
+        // speed.innerHTML = sailor.coordinates[0].speed;
+        // vmg.innerHTML = sailor.coordinates[0].vmg;
+        // pitch.innerHTML = sailor.coordinates[0].pitch;
+        // roll.innerHTML = sailor.coordinates[0].roll;
     });
 
     resizeBottomPanel();
 }
 
+// ---- modal
+function updateSailorListModal(sailors) {
+    list.innerHTML = '';    
+    if(sailors.length == 0){
+        list.classList.add('justify-content-center');
+        list.innerHTML = 'Please select a date from the caledar';
+    }
+    else {
+        list.classList.remove('justify-content-center');
+        sailors.forEach(sailor => {
+            list.innerHTML += `<li class="list-group-item border-0 col-4">
+                                   <input type="checkbox" class="mx-1">${sailor.name}
+                               </li>`
+        });
+        console.log(list.innerHTML);
+    }
+}
+
+
+
+// ---- splitter
 var splitter = $('#workbench').height(1000).split({
     orientation: 'horizontal',
     limit: 200,
